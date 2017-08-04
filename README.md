@@ -10,12 +10,13 @@ It is clean, easy to understand, simple to make changes, and flexible. It is an 
 
 `git-work` will be "installed" as an *alias* to `git`.
 
-First, fork this repository. 
+First, fork this repository.
 Then, you just need to run the command below in your `git` prompt:
 
-`git config --global alias.work '!sh "/path/git-work.sh" '`
+`git-work.sh install`
 
-Pay attention to set the correct `path`, which should be the same where you've cloned this repository.
+This command will execute the `git alias` command which is necessary to run `git
+work` properly.
 
 Finally, type `git work` to see a minimal help.
 
