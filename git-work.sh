@@ -28,8 +28,8 @@ help() {
     echo "Usage: git work issue 123"
     echo "       git work commit \"message\""
     echo "       git work done 123"
-    echo "       git work push origin master"
-    echo "       git work release 1.0 \"message\" "
+    echo "       git work push master"
+    echo "       git work release 1.0 [\"message\"] "
     echo "       git work pr 321"
 }
 
@@ -56,7 +56,7 @@ fi
 
 # push to the server
 if [ $1 = "push" ]; then
-  git push $2 $3
+  git push origin $2
 fi
 
 # release a new tag
@@ -72,6 +72,6 @@ fi
 
 # create a branch from a pull-request
 if [ $1 = "pr" ]; then
-  git fetch $1 pull/$2/head:pr/$2
+  git fetch origin pull/$2/head:pr/$2
   git checkout pr/$2
 fi
