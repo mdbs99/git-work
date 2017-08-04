@@ -15,6 +15,8 @@ Then, you just need to run the command below in your `git` prompt:
 
 Pay attention to set the correct `path`, which should be the same where you've cloned this repository.
 
+Finally, type `git work` to see a minimal help.
+
 ## License (MIT)
 
 Copyright (c) 2017 Marcos Douglas B. Santos
