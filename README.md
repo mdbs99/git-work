@@ -4,7 +4,7 @@
 
 A collection of Git minimalist extensions to provide high-level repository operations.
 
-Clean, easy to understand, simple to make changes, and flexible. It is an alternative to [git-flow](https://github.com/nvie/gitflow).
+It is clean, easy to understand, simple to make changes, and flexible. It is an alternative to [git-flow](https://github.com/nvie/gitflow).
 
 ## Installing
 
@@ -18,6 +18,11 @@ Then, you just need to run the command below in your `git` prompt:
 Pay attention to set the correct `path`, which should be the same where you've cloned this repository.
 
 Finally, type `git work` to see a minimal help.
+
+## Contributors
+
+  - [@mdbs99](https://github.com/mdbs99) as Marcos Douglas B. Santos ([Blog](http://objectpascalprogramming.com/))
+  - [@fabriciofx](https://github.com/fabriciofx) as Fabrício Cabral
 
 ## License (MIT)
 
