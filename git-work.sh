@@ -28,13 +28,13 @@ set -e
 
 usage() {
   echo -e "Usage: git work <subcommand>\n"
-  echo "Avaliable subcommands are:"
-  echo "    issue <id>                Start a new branch from issue <id>"
-  echo "    commit <message>          Commit current work using <message>"
-  echo "    done <id>                 Finish current work and merge"
-  echo "    push                      Push to the server"
-  echo "    release <tag> <message>   Release a new tag called <tag> with <message>"
-  echo "    pr <id>                   Create a branch from a pull-request"
+  echo "Available subcommands are:"
+  echo "   issue <id>              Start a new branch from issue <id>"
+  echo "   commit <\"msg\">          Commit current work using <message>"
+  echo "   done <id>               Finish current work and merge"
+  echo "   push <master>           Push to the server"
+  echo "   release <tag> [<\"msg\">] Release a new tag called <tag> with <message>"
+  echo "   pr <id>                 Create a branch from a pull-request"
 }
 
 if [ -z $1 ] || [ -z $2 ]; then
