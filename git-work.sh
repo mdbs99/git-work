@@ -28,7 +28,7 @@ set -e
 
 usage() {
   echo -e "Usage: git work <subcommand>\n"
-  echo "Avaliable subcommands are:"
+  echo "Available subcommands are:"
   echo "    issue <id>                Start a new branch from issue <id>"
   echo "    commit <message>          Commit current work using <message>"
   echo "    done <id>                 Finish current work and merge"
