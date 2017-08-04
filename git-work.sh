@@ -40,12 +40,12 @@ usage() {
 case "$1" in
   # start a new branch
   issue)
-    [ -z $2 ] && ( usage && exit 1 )
+    [ -z "$2" ] && ( usage && exit 1 )
     git checkout -b "$2"
     ;;
   # commit current work
   commit)
-    [ -z $2 ] && ( usage && exit 1 )
+    [ -z "$2" ] && ( usage && exit 1 )
     git commit -am "$2"
     ;;
   # finish current work and merge
@@ -60,7 +60,7 @@ case "$1" in
     ;;
   # release a new tag
   release)
-    [ -z $2 ] && ( usage && exit 1 )
+    [ -z "$2" ] && ( usage && exit 1 )
     if [ -z "$3" ]; then
       git tag "$2" master
     else
@@ -70,7 +70,7 @@ case "$1" in
     ;;
   # create a branch from a pull-request
   pr)
-    [ -z $2 ] && ( usage && exit 1 )
+    [ -z "$2" ] && ( usage && exit 1 )
     git fetch origin pull/"$2"/head:pr/"$2"
     git checkout pr/"$2"
     ;;
