@@ -4,9 +4,11 @@
 
 A collection of Git minimalist extensions to provide high-level repository operations.
 
+It is an alternative to [git-flow](https://github.com/nvie/gitflow). Clean, easy to understand, simple to make changes, and more flexible.
+
 ## Installing
 
-`git-work` will be installed as an *alias* to `git`.
+`git-work` will be "installed" as an *alias* to `git`.
 
 First, fork this repository. 
 Then, you just need to run the command below in your `git` prompt:
