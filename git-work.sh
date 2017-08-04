@@ -51,7 +51,8 @@ case "$1" in
   # finish current work and merge
   done)
     branch=${2:-$(git symbolic-ref --short HEAD)}
-    git merge "$branch" master
+    git checkout master
+    git merge "$branch"
     ;;
   # push to the server
   push)
@@ -60,11 +61,12 @@ case "$1" in
     ;;
   # release a new tag
   release)
+    git checkout master
     [ -z "$2" ] && ( usage && exit 1 )
     if [ -z "$3" ]; then
-      git tag "$2" master
+      git tag "$2"
     else
-      git tag "$2" master -m "$3"
+      git tag "$2" -m "$3"
     fi
     git push --tags
     ;;
