@@ -31,47 +31,46 @@ usage() {
   echo "Available subcommands are:"
   echo "   issue <id>              Start a new branch from issue <id>"
   echo "   commit <\"msg\">          Commit current work using <message>"
-  echo "   done <id>               Finish current work and merge"
-  echo "   push <master>           Push to the server"
+  echo "   done                    Finish current work and merge"
+  echo "   push                    Push to the server"
   echo "   release <tag> [<\"msg\">] Release a new tag called <tag> with <message>"
   echo "   pr <id>                 Create a branch from a pull-request"
 }
 
-if [ -z $1 ] || [ -z $2 ]; then
-  usage
-  exit 1
-fi
-
 case "$1" in
   # start a new branch
   issue)
+    [ -z $2 ] && ( usage && exit 1 )
     git checkout -b "$2"
     ;;
   # commit current work
   commit)
+    [ -z $2 ] && ( usage && exit 1 )
     git commit -am "$2"
     ;;
   # finish current work and merge
   done)
-    git checkout master
-    git merge "$2"
+    branch=${2:-$(git symbolic-ref --short HEAD)}
+    git merge "$branch" master
     ;;
   # push to the server
   push)
-    git push origin "$2"
+    branch=${2:-$(git symbolic-ref --short HEAD)}
+    git push origin "$branch"
     ;;
   # release a new tag
   release)
-    git checkout master
+    [ -z $2 ] && ( usage && exit 1 )
     if [ -z "$3" ]; then
-      git tag "$2"
+      git tag "$2" master
     else
-      git tag "$2" -m "$3"
+      git tag "$2" master -m "$3"
     fi
     git push --tags
     ;;
   # create a branch from a pull-request
   pr)
+    [ -z $2 ] && ( usage && exit 1 )
     git fetch origin pull/"$2"/head:pr/"$2"
     git checkout pr/"$2"
     ;;
