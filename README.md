@@ -4,7 +4,7 @@
 
 A collection of Git minimalist extensions to provide high-level repository operations.
 
-It is an alternative to [git-flow](https://github.com/nvie/gitflow). Clean, easy to understand, simple to make changes, and more flexible.
+Clean, easy to understand, simple to make changes, and flexible. It is an alternative to [git-flow](https://github.com/nvie/gitflow).
 
 ## Installing
 
