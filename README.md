@@ -4,6 +4,12 @@
 
 A collection of Git minimalist extensions to provide high-level repository operations.
 
+## Installing
+
+`git-work` will be installed as an alias to `git`.
+You just need to run this command in your `git` prompt:
+`git config --global alias.work '!sh "/path/git-work.sh" '`
+
 ## License (MIT)
 
 Copyright (c) 2017 Marcos Douglas B. Santos
