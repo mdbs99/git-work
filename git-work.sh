@@ -75,6 +75,10 @@ case "$1" in
     git fetch origin pull/"$2"/head:pr/"$2"
     git checkout pr/"$2"
     ;;
+  install)
+    path=$(pwd)/git-work.sh
+    git config --global alias.work '!sh "$path" '
+    ;;
   *)
     usage
     exit 1
