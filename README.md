@@ -19,6 +19,11 @@ Pay attention to set the correct `path`, which should be the same where you've c
 
 Finally, type `git work` to see a minimal help.
 
+## Contributors
+
+  - [@mdbs99](https://github.com/mdbs99) as Marcos Douglas B. Santos ([Blog](http://objectpascalprogramming.com/))
+  - [@fabriciofx](https://github.com/fabriciofx) as Fabrício Cabral
+
 ## License (MIT)
 
 Copyright (c) 2017 Marcos Douglas B. Santos
