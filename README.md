@@ -6,11 +6,14 @@ A collection of Git minimalist extensions to provide high-level repository opera
 
 ## Installing
 
-`git-work` will be installed as an alias to `git`.
+`git-work` will be installed as an *alias* to `git`.
 
-You just need to run this command in your `git` prompt:
+First, fork this repository. 
+Then, you just need to run the command below in your `git` prompt:
 
 `git config --global alias.work '!sh "/path/git-work.sh" '`
+
+Pay attention to set the correct `path`, which should be the same where you've cloned this repository.
 
 ## License (MIT)
 
