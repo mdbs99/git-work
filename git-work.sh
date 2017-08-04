@@ -31,8 +31,8 @@ usage() {
   echo "Available subcommands are:"
   echo "   issue <id>              Start a new branch from issue <id>"
   echo "   commit <\"msg\">          Commit current work using <message>"
-  echo "   done                    Finish current work and merge"
-  echo "   push                    Push to the server"
+  echo "   done <id>               Finish current work and merge"
+  echo "   push <master>           Push to the server"
   echo "   release <tag> [<\"msg\">] Release a new tag called <tag> with <message>"
   echo "   pr <id>                 Create a branch from a pull-request"
 }
