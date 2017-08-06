@@ -46,6 +46,7 @@ case "$1" in
   # commit current work
   commit)
     [ -z "$2" ] && ( usage && exit 1 )
+    git add .
     git commit -am "$2"
     ;;
   # finish current work and merge
