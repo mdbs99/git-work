@@ -57,7 +57,7 @@ case "$1" in
     else
       git checkout master
       git merge "$branch"
-    fi  
+    fi
     ;;
   # push to the server
   push)
@@ -80,6 +80,10 @@ case "$1" in
     [ -z "$2" ] && ( usage && exit 1 )
     git fetch origin pull/"$2"/head:pr/"$2"
     git checkout pr/"$2"
+    ;;
+  install)
+    path=$(pwd)/git-work.sh
+    git config --global alias.work "!sh $path "
     ;;
   *)
     usage
