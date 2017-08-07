@@ -57,7 +57,7 @@ case "$1" in
     else
       git checkout master
       git merge "$branch"
-    fi  
+    fi
     ;;
   # push to the server
   push)
@@ -83,7 +83,7 @@ case "$1" in
     ;;
   install)
     path=$(pwd)/git-work.sh
-    git config --global alias.work '!sh "$path" '
+    git config --global alias.work "!sh $path "
     ;;
   *)
     usage
