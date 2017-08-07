@@ -29,12 +29,12 @@ set -e
 usage() {
   echo -e "Usage: git work <subcommand>\n"
   echo "Available subcommands are:"
-  echo "   issue <id>              Start a new branch from issue <id>"
-  echo "   commit <\"msg\">          Commit current work using <message>"
-  echo "   done <id>               Finish current work and merge"
-  echo "   push <master>           Push to the server"
-  echo "   release <tag> [<\"msg\">] Release a new tag called <tag> with <message>"
-  echo "   pr <id>                 Create a branch from a pull-request"
+  echo "   issue <id>             Start a new branch from issue <id>"
+  echo "   commit <\"msg\">         Commit current work using <message>"
+  echo "   done                   Finish current work and merge"
+  echo "   push                   Push current branch to the server"
+  echo "   release <tag> [\"msg\"]  Release a new tag called <tag> with <message>"
+  echo "   pr <id>                Create a branch from a pull-request"
 }
 
 case "$1" in
@@ -58,8 +58,12 @@ case "$1" in
   # finish current work and merge
   done)
     branch=${2:-$(git symbolic-ref --short HEAD)}
-    git checkout master
-    git merge "$branch"
+    if [ "$branch" == "master" ]; then
+      echo "I'm sorry, but I can not merge master into master"
+    else
+      git checkout master
+      git merge "$branch"
+    fi
     ;;
   # push to the server
   push)
@@ -82,6 +86,10 @@ case "$1" in
     [ -z "$2" ] && ( usage && exit 1 )
     git fetch origin pull/"$2"/head:pr/"$2"
     git checkout pr/"$2"
+    ;;
+  install)
+    path=$(pwd)/git-work.sh
+    git config --global alias.work "!sh $path "
     ;;
   *)
     usage
