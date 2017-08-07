@@ -96,6 +96,14 @@ case "$1" in
     path=$(pwd)/git-work.sh
     git config --global alias.work "!sh $path "
     ;;
+  config)
+    [ -z "$2" ] && ( usage && exit 1 )
+    if [ -z "$3" ]; then
+      git config --get git-work."$2"
+    else
+      git config git-work."$2" "$3"
+    fi
+    ;;
   *)
     usage
     exit 1
