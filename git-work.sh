@@ -48,12 +48,10 @@ case "$1" in
     [ -z "$2" ] && ( usage && exit 1 )
     branch=$(git symbolic-ref --short HEAD)
     if [[ $branch =~ ^-?[0-9]+$ ]]; then
-      git add .
-      git commit -am "#$branch: $2"
-    else
-      echo "The current branch name does not follow the issue id name pattern."
-      echo "Please, rename it using the 'git branch -m <issue id>' command."
+      id="#$branch: "
     fi
+    git add .
+    git commit -am "$id$2"
     ;;
   # finish current work and merge
   done)
