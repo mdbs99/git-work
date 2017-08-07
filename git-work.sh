@@ -52,8 +52,12 @@ case "$1" in
   # finish current work and merge
   done)
     branch=${2:-$(git symbolic-ref --short HEAD)}
-    git checkout master
-    git merge "$branch"
+    if [ "$branch" == "master" ]; then
+      echo "I'm sorry, but I can not merge master into master"
+    else
+      git checkout master
+      git merge "$branch"
+    fi  
     ;;
   # push to the server
   push)
