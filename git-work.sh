@@ -37,6 +37,14 @@ usage() {
   echo "   pr <id>                Create a branch from a pull-request"
 }
 
+abort_if_in_master() {
+  branch=${2:-$(git symbolic-ref --short HEAD)}
+  if [ "$branch" == "master" ]; then
+    echo "This command cannot be executed into master"
+    exit 1
+  fi
+}
+
 case "$1" in
   # start a new branch
   issue)
@@ -70,15 +78,16 @@ case "$1" in
       fi
     fi
     ;;
+  # merge current work
+  merge)
+    abort_if_in_master
+    git fetch . "$branch":master
+    ;;
   # finish current work and merge
   done)
-    branch=${2:-$(git symbolic-ref --short HEAD)}
-    if [ "$branch" == "master" ]; then
-      echo "I'm sorry, but I can not merge master into master"
-    else
-      git checkout master
-      git merge "$branch"
-    fi
+    abort_if_in_master
+    git checkout master
+    git merge "$branch"
     ;;
   # push to the server
   push)
