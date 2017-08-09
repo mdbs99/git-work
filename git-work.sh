@@ -31,6 +31,7 @@ usage() {
   echo "Available subcommands are:"
   echo "   issue <id>             Start a new branch from issue <id>"
   echo "   commit <\"msg\">         Commit current work using <message>"
+  echo "   merge                  Merge current work into master"
   echo "   done                   Finish current work and merge"
   echo "   push                   Push current branch to the server"
   echo "   release <tag> [\"msg\"]  Release a new tag called <tag> with <message>"
@@ -78,7 +79,7 @@ case "$1" in
       fi
     fi
     ;;
-  # merge current work
+  # merge current work into master
   merge)
     abort_if_in_master
     git fetch . "$branch":master
