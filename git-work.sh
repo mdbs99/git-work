@@ -46,7 +46,17 @@ case "$1" in
   # commit current work
   commit)
     [ -z "$2" ] && ( usage && exit 1 )
-    git add .
+    for arg; do
+      case "$arg" in 
+        "-a") 
+          git add .
+          ;;
+        "--amend")
+          git commit --amend
+          exit 0
+          ;;
+      esac
+    done
     # checks is has an id
     if [[ "$2" =~ ^\#-?[0-9]+ ]]; then
       git commit -am "$2"
