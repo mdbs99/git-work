@@ -73,7 +73,7 @@ case "$1" in
       branch=$(git symbolic-ref --short HEAD)
       # checks if the branch's name is only an number
       if [[ "$branch" =~ ^-?[0-9]+$ ]]; then
-        git commit -m "#$branch: $2"
+        git commit -m "#$branch $2"
       else
         git commit -m "$2"
       fi
